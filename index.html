@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atomberg Mockups</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; margin: 0; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .app-screen { width: 300px; height: 600px; border: 2px solid #FFD700; border-radius: 30px; background: #000; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.6); color: #fff; }
+    .header { background: #FFD700; color: #000; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px; font-size: 18px; font-weight: bold; }
+    .header img { height: 24px; }
+    .content { padding: 15px; }
+    .card { border: 1px solid #FFD700; border-radius: 12px; padding: 10px; margin-bottom: 12px; background: #111; color: #fff; }
+    h3 { margin: 8px 0; font-size: 16px; color: #FFD700; }
+    .graph { height: 200px; border-radius: 8px; margin: 8px 0; background: #222; padding: 5px; display:flex; align-items:center; justify-content:center; }
+    .graph img { max-width:100%; max-height:100%; }
+    .button { background: #FFD700; color: #000; text-align: center; padding: 10px; border-radius: 8px; margin-top: 10px; cursor: pointer; font-weight: bold; }
+    .alert { background: #330000; border: 1px solid #FF5252; color: #FF9999; padding: 8px; border-radius: 8px; font-size: 14px; word-wrap: break-word; }
+    .chatbot { background: #222; border: 1px solid #FFD700; border-radius: 12px; padding: 10px; font-size: 14px; margin-top: 10px; color: #fff; }
+    select { background: #000; color: #FFD700; border: 1px solid #FFD700; border-radius: 6px; padding: 5px; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <!-- Screen 1: Savings Dashboard -->
+  <div class="app-screen">
+    <div class="header"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Atomberg_logo.png" alt="Atomberg Logo"> Atomberg</div>
+    <div class="content">
+      <div class="card">
+        <h3>💰 Savings Dashboard</h3>
+        <p>Lifetime Savings: ₹ 1,250</p>
+        <p>Compared to Normal Fan (Avg: 75W, 24 hrs/month)</p>
+        <label for="monthSelect">Select Month:</label>
+        <select id="monthSelect">
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+        </select>
+        <div class="graph">
+          <img src="savings_dashboard.png" alt="Savings Graph">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Bulk Device + Alerts -->
+  <div class="app-screen">
+    <div class="header"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Atomberg_logo.png" alt="Atomberg Logo"> Atomberg</div>
+    <div class="content">
+      <div class="card">
+        <h3>📱 Bulk Device Control</h3>
+        <p>Living Room: 3 Fans</p>
+        <div class="button">Turn All OFF</div>
+      </div>
+      <div class="card">
+        <h3>🚨 Smart Alerts</h3>
+        <div class="alert">High Consumption detected in Bedroom Fan</div>
+        <p>Last Error Check: 7 Days Ago</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Chatbot + Ticket -->
+  <div class="app-screen">
+    <div class="header"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Atomberg_logo.png" alt="Atomberg Logo"> Atomberg</div>
+    <div class="content">
+      <div class="card">
+        <h3>🤖 AI Chatbot</h3>
+        <div class="chatbot">User: My fan is noisy<br/>Bot: Please try cleaning blades. Do you want to book a service?</div>
+      </div>
+      <div class="card">
+        <h3>📍 Service Ticket</h3>
+        <p>Status: Assigned → Technician arriving tomorrow</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
