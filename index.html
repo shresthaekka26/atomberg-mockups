@@ -22,7 +22,7 @@
 <body>
   <!-- Screen 1: Savings Dashboard -->
   <div class="app-screen">
-    <div class="header">Atomberg</div>
+    <div class="header">Atomberg App</div>
     <div class="content">
       <div class="card">
         <h3>💰 Savings Dashboard</h3>
@@ -30,10 +30,10 @@
         <p>Compared to Normal Fan (Avg: 75W, 24 hrs/month)</p>
         <label for="monthSelect">Select Month:</label>
         <select id="monthSelect">
-          <option>January</option>
-          <option>February</option>
-          <option>March</option>
-          <option>April</option>
+          <option value="jan">January</option>
+          <option value="feb">February</option>
+          <option value="mar">March</option>
+          <option value="apr">April</option>
         </select>
         <div class="graph">
           <canvas id="usageChart"></canvas>
@@ -44,7 +44,7 @@
 
   <!-- Screen 2: Bulk Device + Alerts -->
   <div class="app-screen">
-    <div class="header">Atomberg</div>
+    <div class="header">Atomberg App</div>
     <div class="content">
       <div class="card">
         <h3>📱 Bulk Device Control</h3>
@@ -61,7 +61,7 @@
 
   <!-- Screen 3: Chatbot + Ticket -->
   <div class="app-screen">
-    <div class="header">Atomberg</div>
+    <div class="header">Atomberg App</div>
     <div class="content">
       <div class="card">
         <h3>🤖 AI Chatbot</h3>
@@ -78,19 +78,25 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const ctx = document.getElementById('usageChart').getContext('2d');
-    const usageChart = new Chart(ctx, {
+
+    const monthData = {
+      jan: [35, 25, 20, 60],
+      feb: [40, 30, 22, 60],
+      mar: [38, 28, 18, 60],
+      apr: [32, 20, 15, 60]
+    };
+
+    let usageChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: ['Living Room Fan', 'Bedroom Fan', 'Kitchen Fan', 'Normal Fan Avg'],
-        datasets: [
-          {
-            label: 'Energy (kWh)',
-            data: [35, 25, 20, 60],
-            backgroundColor: ['#FFD700','#FF5733','#33FF57','#888'],
-            borderColor: '#fff',
-            borderWidth: 1
-          }
-        ]
+        datasets: [{
+          label: 'Energy (kWh)',
+          data: monthData.jan,
+          backgroundColor: ['#FFD700','#FF5733','#33FF57','#888'],
+          borderColor: '#fff',
+          borderWidth: 1
+        }]
       },
       options: {
         responsive: true,
@@ -100,6 +106,12 @@
           y: { ticks: { color: '#fff' } }
         }
       }
+    });
+
+    document.getElementById('monthSelect').addEventListener('change', (e) => {
+      const selected = e.target.value;
+      usageChart.data.datasets[0].data = monthData[selected];
+      usageChart.update();
     });
   </script>
 </body>
